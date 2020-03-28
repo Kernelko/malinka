@@ -16,6 +16,7 @@ digits_dict = {
 }
 segments = (2,3,4,17,27,22,10)
 
+t1 = datetime.now()
 
 def setuppins():
     GPIO.setmode(GPIO.BCM)
@@ -40,10 +41,11 @@ def displaydigit(digit, place):
     
 
 def displaynumber(number):
-    displaydigit(number[0], 0)
-    print("next")
-    time.sleep(0.005)
-    displaydigit(number[1], 1)
+    while (datetime.now()-t1).seconds <= 1:
+        displaydigit(number[0], 0)
+        print("next")
+        time.sleep(0.005)
+        displaydigit(number[1], 1)
 
 
 
