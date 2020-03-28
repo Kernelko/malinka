@@ -29,19 +29,21 @@ def setuppins():
 
 
 def displaydigit(digit, place):
-    digits = (9,11)
     for segment in segments:
-        GPIO.output(9,GPIO.LOW)
-        GPIO.output(11, GPIO.HIGH)
+        if place == 0:
+            GPIO.output(9,GPIO.LOW)
+            GPIO.output(11, GPIO.HIGH)
+        elif place == 1:
+            GPIO.output(9, GPIO.HIGH)
+            GPIO.output(11, GPIO.LOW)
         GPIO.output(segment, digits_dict[digit][segments.index(segment)])
     
 
 def displaynumber(number):
-    digits = list(number) 
-    displaydigit(digits[0], 0)
+    displaydigit(number[0], 0)
     print("next")
     time.sleep(2)
-    displaydigit(digits[1], 1)
+    displaydigit(number[1], 1)
 
 
 
