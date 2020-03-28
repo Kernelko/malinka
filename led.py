@@ -31,7 +31,7 @@ def setuppins():
 def displaydigit(digit, place):
     digits = (9,11)
     for segment in segments:
-        GPIO.output(digits[place], GPIO.LOW)
+        GPIO.output(digits[place], GPIO.HIGH)
         GPIO.output(segment, digits_dict[digit][segments.index(segment)])
 
 
@@ -41,6 +41,7 @@ def displaynumber(number):
     digits = list(number)
     while (datetime.now()-t1).seconds <= 1:        
         for digit in digits:
+            print("Displaying digit {}".format(digit))
             displaydigit(digit,  digits.index(digit))
 
 
