@@ -42,7 +42,7 @@ def displaydigit(digit, place):
 def displaynumber(number):
     displaydigit(number[0], 0)
     print("next")
-    time.sleep(2)
+    time.sleep(0.005)
     displaydigit(number[1], 1)
 
 
