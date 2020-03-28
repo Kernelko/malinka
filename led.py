@@ -6,7 +6,7 @@ digits_dict = {
     '0': (0, 0, 0, 0, 0, 0, 1),
     '1': (1, 0, 0, 1, 1, 1, 1),
     '2': (0, 0, 1, 0, 0, 1, 0),
-    '3': (0, 0, 0, 0, 0, 0, 1),
+    '3': (0, 0, 0, 0, 1, 1, 0),
     '4': (1, 0, 0, 1, 1, 0, 0),
     '5': (0, 1, 0, 0, 1, 0, 0),
     '6': (0, 1, 0, 0, 0, 0, 0),
@@ -31,10 +31,9 @@ def setuppins():
 def displaydigit(digit, place):
     digits = (9,11)
     for segment in segments:
-        GPIO.output(digits[place],GPIO.HIGH)
+        GPIO.output(9,GPIO.LOW)
+        GPIO.output(11, GPIO.HIGH)
         GPIO.output(segment, digits_dict[digit][segments.index(segment)])
-        GPIO.output(digits[place], GPIO.LOW)
-
     
 
 def displaynumber(number):
