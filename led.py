@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+from datetime import datetime
 
 digits_dict = {
     '0': (0, 0, 0, 0, 0, 0, 1),
@@ -14,6 +15,7 @@ digits_dict = {
     '9': (0, 0, 0, 0, 1, 0, 0)
 }
 segments = (2,3,4,17,27,22,10)
+t1= datetime.now()
 
 def setuppins():
     GPIO.setmode(GPIO.BCM)
@@ -36,13 +38,12 @@ def displaydigit(digit, place):
     
 
 def displaynumber(number):
-    nextif = True
-    while nextif:
-        digits = list(number)
+    digits = list(number)
+    print(digits)
+    while (datetime.now()-t1).seconds <= 1:        
         for digit in digits:
             displaydigit(digit,  digits.index(digit))
-        time.sleep(5)
-        nextif=False
+
 
 
 try:
@@ -51,6 +52,7 @@ try:
     for number in numbers:
         print("Displaying {}".format(number))
         displaynumber(number)
+        time.sleep(5)
 
 
 finally:
