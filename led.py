@@ -29,8 +29,8 @@ def setuppins():
 def displaydigit(digit, place):
     digits = (9,11)
     for segment in segments:
-        print(digits_dict[digit][segments.index(segment)])
-        GPIO.output(digits[place], digits_dict[digit][segments.index(segment)])
+        GPIO.output(digits[place], GPIO.LOW)
+        GPIO.output(segment, digits_dict[digit][segments.index(segment)])
 
 
     
