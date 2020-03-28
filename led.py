@@ -30,7 +30,7 @@ def displaydigit(digit, place):
     digits = (9,11)
     for segment in segments:
         GPIO.output(segment, GPIO.LOW)
-        GPIO.output(digits[place], GPIO.HIGH)
+        GPIO.output(digits[place], digits_dict[digit][segment])
 
 
     
