@@ -1,18 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-
-segments = (2,3,4,17,27,22,10)
-
-for segment in segments:
-    GPIO.setup(segment, GPIO.OUT)
-
-
-GPIO.cleanup()
-print("Led off")
-
 digits_dict = {
     '0': (0, 0, 0, 0, 0, 0, 1),
     '1': (1, 0, 0, 1, 1, 1, 1),
@@ -26,8 +14,16 @@ digits_dict = {
     '9': (0, 0, 0, 0, 1, 0, 0)
 }
 
-GPIO.setup(9, GPIO.OUT)
-GPIO.setup(11, GPIO.OUT)
+def setuppins():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    segments = (2,3,4,17,27,22,10)
+    for segment in segments:
+        GPIO.setup(segment, GPIO.OUT)
+    GPIO.setup(9, GPIO.OUT)
+    GPIO.setup(11, GPIO.OUT)
+
+
 
 
 def displaydigit(digit, place):
@@ -50,6 +46,7 @@ def displaynumber(number):
 
 
 try:
+    setuppins()
     numbers = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10']
     for number in numbers:
         print("Displaying {}".format(number))
