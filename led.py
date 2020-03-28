@@ -39,7 +39,6 @@ def displaydigit(digit, place):
 
 def displaynumber(number):
     digits = list(number)
-    print(digits)
     while (datetime.now()-t1).seconds <= 1:        
         for digit in digits:
             displaydigit(digit,  digits.index(digit))
@@ -52,7 +51,7 @@ try:
     for number in numbers:
         print("Displaying {}".format(number))
         displaynumber(number)
-        time.sleep(5)
+        time.sleep(1)
 
 
 finally:
