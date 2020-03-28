@@ -13,11 +13,11 @@ digits_dict = {
     '8': (0, 0, 0, 0, 0, 0, 0),
     '9': (0, 0, 0, 0, 1, 0, 0)
 }
+segments = (2,3,4,17,27,22,10)
 
 def setuppins():
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
-    segments = (2,3,4,17,27,22,10)
     for segment in segments:
         GPIO.setup(segment, GPIO.OUT)
     GPIO.setup(9, GPIO.OUT)
