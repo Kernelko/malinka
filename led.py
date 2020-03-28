@@ -26,10 +26,17 @@ digits_dict = {
     '9': (0, 0, 0, 0, 1, 0, 0)
 }
 
+GPIO.setup(9, GPIO.OUT)
+GPIO.setup(11, GPIO.OUT)
+
 
 def displaydigit(digit, place):
+    digits = (9,11)
     for segment in segments:
         GPIO.output(segment, GPIO.LOW)
+        GPIO.output(digits[place], GPIO.HIGH)
+
+
     
 
 def displaynumber(number):
