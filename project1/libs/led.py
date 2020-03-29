@@ -14,7 +14,7 @@ digits_dict = {
     '8': (0, 0, 0, 0, 0, 0, 0),
     '9': (0, 0, 0, 0, 1, 0, 0)
 }
-segments = (14,15,18,23,24,25,8)
+segments = (3,4,17,27,22,10,9)
 
 
 def setuppins():
@@ -22,18 +22,18 @@ def setuppins():
     GPIO.setwarnings(False)
     for segment in segments:
         GPIO.setup(segment, GPIO.OUT)
-    GPIO.setup(7, GPIO.OUT)
-    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(11, GPIO.OUT)
+    GPIO.setup(5, GPIO.OUT)
 
 
 def displaydigit(digit, place):
     for segment in segments:
         if place == 0:
-            GPIO.output(7,GPIO.LOW)
-            GPIO.output(12, GPIO.HIGH)
+            GPIO.output(11,GPIO.LOW)
+            GPIO.output(5, GPIO.HIGH)
         elif place == 1:
-            GPIO.output(7, GPIO.HIGH)
-            GPIO.output(12, GPIO.LOW)
+            GPIO.output(11, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
         GPIO.output(segment, digits_dict[digit][segments.index(segment)])
     
 
