@@ -12,7 +12,7 @@ DHT_PIN = 2
 
 while True:
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-    with open('data_file.csv', mode='w') as datafile:
+    with open('data_file.csv', mode='a+') as datafile:
         writer= csv.writer(datafile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         if humidity and temperature:
             date = datetime.now()
