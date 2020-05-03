@@ -39,7 +39,7 @@ def displaydigit(digit, place):
 
 def displaynumber(number):
     t1 = datetime.now()
-    while (datetime.now()-t1).seconds <= 1:
+    while (datetime.now()-t1).seconds <= 0.05:
         displaydigit(number[0], 0)
         time.sleep(0.005)
         displaydigit(number[1], 1)
